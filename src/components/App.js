@@ -13,6 +13,8 @@ import Filters from './Filters';
 
 function App() {
   const [dataMovie, setDataMovie] = useState([]);
+  const [filterMovie, setFilterMovie] = useState('');
+  const [filterYear, setFilterYear] = useState('');
 
   useEffect(() => {
     getApiData().then((dataFromApi) => {
@@ -21,18 +23,35 @@ function App() {
   }, []);
 
   //PREVENIR ENVÍO PRO DEFECTO DE FORM
-
   const PreventSubmitForm = (ev) => {
     ev.prevent.default();
   };
 
+  const handleFilterMovie = (value) => {
+    setFilterMovie(value);
+  };
+
+  // const handleFilterYear = (value) => {
+  //   setFilterYear(value);
+  // };
+
+  const movieFilter = dataMovie.filter((name) => {
+    return name.movie.toLowerCase().includes(filterMovie.toLowerCase());
+  });
+
   return (
     <div>
       <h1>Owen Wilson's "wow"</h1>
-      <Filters PreventSubmitForm={PreventSubmitForm} />
-      <MovieSceneList dataMovie={dataMovie} />
+      <Filters
+        PreventSubmitForm={PreventSubmitForm}
+        handleFilterMovie={handleFilterMovie}
+      />
+      <MovieSceneList dataMovie={movieFilter} />
     </div>
   );
 }
 
 export default App;
+
+// PreventSubmitForm={PreventSubmitForm} -> Prevenir envío form
+// handleFilterMovie={handleFilterMovie} -> Función que recoge el valor del input

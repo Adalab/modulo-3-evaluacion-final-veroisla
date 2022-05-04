@@ -1,10 +1,19 @@
 //FILTRADO POR PELÍCULA
 
-function MovieFilter(params) {
+function MovieFilter(props) {
+  const handleChange = (ev) => {
+    props.handleFilterMovie(ev.target.value);
+  };
+
   return (
     <>
       <label htmlFor="movie">Movie</label>
-      <input type="text" placeholder="write the movie"></input>
+      <input
+        type="text"
+        placeholder=""
+        value={props.filterMovie}
+        onChange={handleChange}
+      ></input>
     </>
   );
 }
