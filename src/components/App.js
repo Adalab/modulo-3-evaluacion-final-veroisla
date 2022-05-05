@@ -14,7 +14,7 @@ import Filters from './Filters';
 function App() {
   const [dataMovie, setDataMovie] = useState([]);
   const [filterByName, setFilterByName] = useState('');
-  const [filterByYear, setFilterByYear] = useState('');
+  const [filterByYear, setFilterByYear] = useState([]);
 
   useEffect(() => {
     getApiData().then((dataFromApi) => {
@@ -33,12 +33,30 @@ function App() {
 
   const handleFilterByYear = (value) => {
     setFilterByYear(value);
-    console.log('holis');
   };
 
-  const movieFilter = dataMovie.filter((name) => {
-    return name.movie.toLowerCase().includes(filterByName.toLowerCase());
-  });
+  const movieFilter = dataMovie
+
+    .filter((name) => {
+      return name.movie.toLowerCase().includes(filterByName.toLowerCase());
+    })
+
+    .filter((year) => {
+      if (filterByYear.length === 0) {
+        return true;
+      } else {
+        return filterByYear.includes(year.year);
+      }
+    });
+
+  //Array que contiene todos los años.
+  const getYear = () => {
+    const onlyYear = dataMovie.map((year) => year.year); //onlyYear es mi array de todos los años.
+    const uniqueYear = onlyYear.filter((eachYear, index) => {
+      return onlyYear.indexOf(eachYear) === index;
+    });
+    return uniqueYear;
+  };
 
   return (
     <div>
@@ -46,6 +64,7 @@ function App() {
       <Filters
         PreventSubmitForm={PreventSubmitForm}
         handleFilterByName={handleFilterByName}
+        getYear={getYear()}
         handleFilterByYear={handleFilterByYear}
       />
       <MovieSceneList dataMovie={movieFilter} />
@@ -57,7 +76,4 @@ export default App;
 
 // PreventSubmitForm={PreventSubmitForm} -> Prevenir envío form
 // handlefilterByName={handlefilterByName} -> Función que recoge el valor del input
-
-// //const movieFilter = dataMovie.filter((name) => {
-//   return name.movie.toLowerCase().includes(filterByName.toLowerCase());
-// }); // haz un filtro de dataMovie, retorname de cada elemento, de la propiedad movie, aquellas que coincidan con filterByName (contiene el valor del input del usuario)
+//Hago filtro de onlyYear, voy a filtrar, por cada elemento del array (eachYear) y por la posición de ese elemento (index). Return, del array de uniqueYear, dime cula es la posición de la ciudad en la que estoy, si esa ciudad es igual al índice actual, entonces devuelvemela.
