@@ -57,12 +57,17 @@ function App() {
     return uniqueYear;
   };
 
+  //MÁS INFO URL
   const { pathname } = useLocation();
   const dataPath = matchPath('/movieSceneDetail/:id', pathname);
-
   const movieId = dataPath !== null ? dataPath.params.id : null;
-
   const movieFound = dataMovie.find((item) => item.id === movieId);
+
+  //Botón volver a listado
+
+  const getBack = (ev) => {
+    console.log('hola');
+  };
 
   return (
     <div>
@@ -88,7 +93,7 @@ function App() {
         />
         <Route
           path="/movieSceneDetail/:id"
-          element={<MovieSceneDetail oneMovie={movieFound} />}
+          element={<MovieSceneDetail oneMovie={movieFound} getBack={getBack} />}
         />
       </Routes>
     </div>

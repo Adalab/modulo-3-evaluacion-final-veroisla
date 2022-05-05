@@ -1,6 +1,5 @@
 //LISTADO DE PELÍCULAS, (aquí pintamos las pelis)
 import '../styles/MovieSceneList.scss';
-// import FilterByName from './FilterByName';
 import MovieSceneItem from './MovieSceneItem';
 
 function MovieSceneList(props) {

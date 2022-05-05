@@ -1,6 +1,10 @@
 //MÁS INFO DE LA PELI
 
 function MovieSceneDetail(props) {
+  const handleClick = (ev) => {
+    props.getBack();
+  };
+
   return (
     <>
       <img
@@ -15,6 +19,10 @@ function MovieSceneDetail(props) {
       <a href={props.oneMovie.audio} target="_blank" rel="noreferrer">
         Escuchar Audio
       </a>
+
+      <button type="button" onClick={handleClick}>
+        <a href="/">Volver a listado</a>
+      </button>
     </>
   );
 }
