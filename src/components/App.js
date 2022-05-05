@@ -14,7 +14,7 @@ import Filters from './Filters';
 function App() {
   const [dataMovie, setDataMovie] = useState([]);
   const [filterByName, setFilterByName] = useState('');
-  const [filterByYear, setFilterByYear] = useState([]);
+  const [filterByYear, setFilterByYear] = useState('');
 
   useEffect(() => {
     getApiData().then((dataFromApi) => {
@@ -66,6 +66,7 @@ function App() {
         handleFilterByName={handleFilterByName}
         getYear={getYear()}
         handleFilterByYear={handleFilterByYear}
+        filterByYear={filterByYear}
       />
       <MovieSceneList dataMovie={movieFilter} />
     </div>

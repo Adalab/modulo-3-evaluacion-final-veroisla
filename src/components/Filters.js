@@ -14,6 +14,7 @@ function Filters(props) {
         <FilterByYear
           getYear={props.getYear}
           handleFilterByYear={props.handleFilterByYear}
+          filterByYear={props.filterByYear}
         />
       </form>
     </section>

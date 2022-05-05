@@ -3,21 +3,15 @@ function FilterByYear(props) {
     props.handleFilterByYear(ev.target.value);
   };
   const renderYear = () => {
-    return props.getYear.map((year, index) => {
-      return (
-        <>
-          <option key={index} value={year}>
-            {year}
-          </option>
-        </>
-      );
+    return props.getYear.map((year) => {
+      return <option value={year}>{year}</option>;
     });
   };
 
   return (
     <>
       <label htmlFor="year">Year</label>
-      <select name="" id="" onChange={handleChange}>
+      <select name="year" onChange={handleChange} value={props.filterByYear}>
         <option value="">All</option>
         {renderYear()}
       </select>
