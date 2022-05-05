@@ -1,6 +1,6 @@
 //CONTIENE AMBOS COMPONENTES DE FILTRAR
-import YearFilter from './YearFilter';
-import MovieFilter from './MovieFilter';
+import FilterByYear from './FilterByYear';
+import FilterByName from './FilterByName';
 
 function Filters(props) {
   const handleSubmitForm = (props) => {
@@ -9,9 +9,9 @@ function Filters(props) {
   return (
     <section>
       <form onSubmit={handleSubmitForm}>
-        <MovieFilter handleFilterMovie={props.handleFilterMovie} />
+        <FilterByName handleFilterByName={props.handleFilterByName} />
 
-        <YearFilter />
+        <FilterByYear handleFilterByYear={props.handleFilterByYear} />
       </form>
     </section>
   );

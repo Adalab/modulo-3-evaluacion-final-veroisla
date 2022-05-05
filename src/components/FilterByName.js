@@ -1,8 +1,8 @@
 //FILTRADO POR PELÍCULA
 
-function MovieFilter(props) {
+function FilterByName(props) {
   const handleChange = (ev) => {
-    props.handleFilterMovie(ev.target.value);
+    props.handleFilterByName(ev.target.value);
   };
 
   return (
@@ -18,4 +18,4 @@ function MovieFilter(props) {
   );
 }
 
-export default MovieFilter;
+export default FilterByName;

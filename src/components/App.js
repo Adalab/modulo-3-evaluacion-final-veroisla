@@ -13,8 +13,8 @@ import Filters from './Filters';
 
 function App() {
   const [dataMovie, setDataMovie] = useState([]);
-  const [filterMovie, setFilterMovie] = useState('');
-  const [filterYear, setFilterYear] = useState('');
+  const [filterByName, setFilterByName] = useState('');
+  const [filterByYear, setFilterByYear] = useState('');
 
   useEffect(() => {
     getApiData().then((dataFromApi) => {
@@ -27,24 +27,26 @@ function App() {
     ev.prevent.default();
   };
 
-  const handleFilterMovie = (value) => {
-    setFilterMovie(value);
+  const handleFilterByName = (value) => {
+    setFilterByName(value);
   };
 
-  const handleFilterYear = (value) => {
-    setFilterYear(value);
+  const handleFilterByYear = (value) => {
+    setFilterByYear(value);
+    console.log('holis');
   };
 
   const movieFilter = dataMovie.filter((name) => {
-    return name.movie.toLowerCase().includes(filterMovie.toLowerCase());
-  }); // haz un filtro de dataMovie, retorname de cada elemento, de la propiedad movie, aquellas que coincidan con filterMovie (contiene el valor del input del usuario)
+    return name.movie.toLowerCase().includes(filterByName.toLowerCase());
+  });
 
   return (
     <div>
       <h1>Owen Wilson's "wow"</h1>
       <Filters
         PreventSubmitForm={PreventSubmitForm}
-        handleFilterMovie={handleFilterMovie}
+        handleFilterByName={handleFilterByName}
+        handleFilterByYear={handleFilterByYear}
       />
       <MovieSceneList dataMovie={movieFilter} />
     </div>
@@ -54,4 +56,8 @@ function App() {
 export default App;
 
 // PreventSubmitForm={PreventSubmitForm} -> Prevenir envío form
-// handleFilterMovie={handleFilterMovie} -> Función que recoge el valor del input
+// handlefilterByName={handlefilterByName} -> Función que recoge el valor del input
+
+// //const movieFilter = dataMovie.filter((name) => {
+//   return name.movie.toLowerCase().includes(filterByName.toLowerCase());
+// }); // haz un filtro de dataMovie, retorname de cada elemento, de la propiedad movie, aquellas que coincidan con filterByName (contiene el valor del input del usuario)
