@@ -3,18 +3,27 @@ import '../styles/MovieSceneList.scss';
 import MovieSceneItem from './MovieSceneItem';
 
 function MovieSceneList(props) {
-  const movieElements = props.dataMovie.map((oneMovie, index) => {
+  if (props.dataMovie.length === 0) {
     return (
-      <li className="movieSceneList__poster" key={index}>
-        <MovieSceneItem oneMovie={oneMovie} />
-      </li>
+      <p>
+        No hay ninguna película que coincida con tu búsqueda
+        {props.dataMovie.value}
+      </p>
     );
-  });
-  return (
-    <section>
-      <ul className="movieSceneList__list">{movieElements}</ul>
-    </section>
-  );
+  } else {
+    const movieElements = props.dataMovie.map((oneMovie, index) => {
+      return (
+        <li className="movieSceneList__poster" key={index}>
+          <MovieSceneItem oneMovie={oneMovie} />
+        </li>
+      );
+    });
+    return (
+      <section>
+        <ul className="movieSceneList__list">{movieElements}</ul>
+      </section>
+    );
+  }
 }
 
 export default MovieSceneList;

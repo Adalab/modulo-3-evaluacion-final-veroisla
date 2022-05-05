@@ -31,13 +31,13 @@ function App() {
     setFilterMovie(value);
   };
 
-  // const handleFilterYear = (value) => {
-  //   setFilterYear(value);
-  // };
+  const handleFilterYear = (value) => {
+    setFilterYear(value);
+  };
 
   const movieFilter = dataMovie.filter((name) => {
     return name.movie.toLowerCase().includes(filterMovie.toLowerCase());
-  });
+  }); // haz un filtro de dataMovie, retorname de cada elemento, de la propiedad movie, aquellas que coincidan con filterMovie (contiene el valor del input del usuario)
 
   return (
     <div>
