@@ -2,14 +2,13 @@ import React from 'react';
 import '../styles/App.scss';
 import getApiData from '../services/moviesApi';
 
-//--> RUTAS EXTERNAS
 import { useEffect, useState } from 'react';
-// import { Routes, Route, Link } from 'react-router-dom';
-// import { matchPath, useLocation } from 'react-router';
+import { Routes, Route, Link } from 'react-router-dom';
+import { matchPath, useLocation } from 'react-router';
 
-//--> RUTAS INTERNAS
 import MovieSceneList from './MovieSceneList';
 import Filters from './Filters';
+import MovieSceneDetail from './MovieSceneDetail';
 
 function App() {
   const [dataMovie, setDataMovie] = useState([]);
@@ -17,6 +16,7 @@ function App() {
   const [filterByYear, setFilterByYear] = useState('');
 
   useEffect(() => {
+    console.log('hola');
     getApiData().then((dataFromApi) => {
       setDataMovie(dataFromApi);
     });
@@ -24,7 +24,7 @@ function App() {
 
   //PREVENIR ENVÍO PRO DEFECTO DE FORM
   const PreventSubmitForm = (ev) => {
-    ev.prevent.default();
+    ev.preventDefault();
   };
 
   const handleFilterByName = (value) => {
@@ -58,17 +58,40 @@ function App() {
     return uniqueYear;
   };
 
+  const { pathname } = useLocation();
+  const dataPath = matchPath('/movieSceneDetail/:id', pathname);
+  console.log(dataPath);
+
+  const movieId = dataPath !== null ? dataPath.params.id : null;
+  console.log(movieId);
+  console.log(dataMovie);
+  const movieFound = dataMovie.find((item) => item.id === movieId);
+  console.log(movieFound);
+
   return (
     <div>
       <h1>Owen Wilson's "wow"</h1>
-      <Filters
-        PreventSubmitForm={PreventSubmitForm}
-        handleFilterByName={handleFilterByName}
-        getYear={getYear()}
-        handleFilterByYear={handleFilterByYear}
-        filterByYear={filterByYear}
-      />
-      <MovieSceneList dataMovie={movieFilter} />
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Filters
+                PreventSubmitForm={PreventSubmitForm}
+                handleFilterByName={handleFilterByName}
+                getYear={getYear()}
+                handleFilterByYear={handleFilterByYear}
+                filterByYear={filterByYear}
+              />
+              <MovieSceneList dataMovie={movieFilter} />
+            </>
+          }
+        />
+        <Route
+          path="/movieSceneDetail/:id"
+          element={<MovieSceneDetail oneMovie={movieFound} />}
+        />
+      </Routes>
     </div>
   );
 }
@@ -78,3 +101,5 @@ export default App;
 // PreventSubmitForm={PreventSubmitForm} -> Prevenir envío form
 // handlefilterByName={handlefilterByName} -> Función que recoge el valor del input
 //Hago filtro de onlyYear, voy a filtrar, por cada elemento del array (eachYear) y por la posición de ese elemento (index). Return, del array de uniqueYear, dime cula es la posición de la ciudad en la que estoy, si esa ciudad es igual al índice actual, entonces devuelvemela.
+
+//** useMatch , useLocation --> Para sacar info de la url */

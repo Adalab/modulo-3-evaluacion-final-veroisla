@@ -4,12 +4,7 @@ import MovieSceneItem from './MovieSceneItem';
 
 function MovieSceneList(props) {
   if (props.dataMovie.length === 0) {
-    return (
-      <p>
-        No hay ninguna película que coincida con tu búsqueda
-        {props.dataMovie.value}
-      </p>
-    );
+    return <p>No hay ninguna película que coincida con tu búsqueda</p>;
   } else {
     const movieElements = props.dataMovie.map((oneMovie, index) => {
       return (

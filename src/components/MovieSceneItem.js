@@ -1,9 +1,10 @@
 //PINTAMOS CADA UNA DE LAS PELÍCULAS, contenido del <li>
 import '../styles/MovieSceneItem.scss';
+import { Link } from 'react-router-dom';
 
 function MovieSceneItem(props) {
   return (
-    <>
+    <Link to={`/movieSceneDetail/${props.oneMovie.id}`}>
       <img
         className="movieSceneItem__image"
         alt={props.oneMovie.movie}
@@ -13,7 +14,7 @@ function MovieSceneItem(props) {
       <h4>{props.oneMovie.movie}</h4>
       <p>{props.oneMovie.year}</p>
       <p>{props.oneMovie.full_line}</p>
-    </>
+    </Link>
   );
 }
 

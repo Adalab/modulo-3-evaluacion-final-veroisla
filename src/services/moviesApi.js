@@ -6,14 +6,14 @@ const getApiData = () => {
   )
     .then((response) => response.json())
     .then((data) => {
-      const dataClean = data.map((movie) => {
+      const dataClean = data.map((movie, index) => {
         return {
           poster: movie.poster,
           movie: movie.movie,
           full_line: movie.full_line,
           year: movie.year,
           director: movie.director,
-          audio: movie.audio,
+          id: movie.movie + movie.current_wow_in_movie,
         };
       });
       return dataClean;
