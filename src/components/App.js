@@ -3,7 +3,7 @@ import '../styles/App.scss';
 import getApiData from '../services/moviesApi';
 
 import { useEffect, useState } from 'react';
-import { Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import { matchPath, useLocation } from 'react-router';
 
 import MovieSceneList from './MovieSceneList';
@@ -16,7 +16,6 @@ function App() {
   const [filterByYear, setFilterByYear] = useState('');
 
   useEffect(() => {
-    console.log('hola');
     getApiData().then((dataFromApi) => {
       setDataMovie(dataFromApi);
     });
@@ -60,17 +59,17 @@ function App() {
 
   const { pathname } = useLocation();
   const dataPath = matchPath('/movieSceneDetail/:id', pathname);
-  console.log(dataPath);
 
   const movieId = dataPath !== null ? dataPath.params.id : null;
-  console.log(movieId);
-  console.log(dataMovie);
+
   const movieFound = dataMovie.find((item) => item.id === movieId);
-  console.log(movieFound);
 
   return (
     <div>
-      <h1>Owen Wilson's "wow"</h1>
+      <header>
+        <h1>Owen Wilson's "wow"</h1>
+      </header>
+
       <Routes>
         <Route
           path="/"

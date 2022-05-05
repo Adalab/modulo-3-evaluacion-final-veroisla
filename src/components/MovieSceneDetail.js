@@ -11,7 +11,10 @@ function MovieSceneDetail(props) {
       />
       <h4>{props.oneMovie.movie}</h4>
       <p>{props.oneMovie.full_line}</p>
-      <p>{props.oneMovie.audio}</p>
+      <p>Director: {props.oneMovie.director}</p>
+      <a href={props.oneMovie.audio} target="_blank" rel="noreferrer">
+        Escuchar Audio
+      </a>
     </>
   );
 }

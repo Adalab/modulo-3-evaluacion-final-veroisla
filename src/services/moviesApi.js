@@ -14,6 +14,7 @@ const getApiData = () => {
           year: movie.year,
           director: movie.director,
           id: movie.movie + movie.current_wow_in_movie,
+          audio: movie.audio,
         };
       });
       return dataClean;
