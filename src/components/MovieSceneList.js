@@ -6,7 +6,12 @@ import '../styles/Components/MovieSceneList.scss';
 
 function MovieSceneList(props) {
   if (props.dataMovie.length === 0) {
-    return <p>No hay ninguna película que coincida con tu búsqueda</p>;
+    return (
+      <p className="movieSceneList__alert">
+        Uuups, parece ser que no hay ninguna película que coincida con tu
+        búsqueda!
+      </p>
+    );
   } else {
     const movieElements = props.dataMovie.map((oneMovie, index) => {
       return (

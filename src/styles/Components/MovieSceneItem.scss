@@ -1,8 +1,13 @@
 @import '../Core/Reset.scss';
 @import "../Core/Variables.scss";
 
-.movieSceneItem{
+.movieSceneItem {
+
+display: flex;
+flex-direction: column;
+align-items: center;
+
     &__image {
-        width: 60px;
-    }
+        width: 270px;
+     }
 }

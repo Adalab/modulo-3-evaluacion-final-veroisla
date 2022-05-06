@@ -18,11 +18,11 @@ function FilterByYear(props) {
 
   return (
     <>
-      <label className="filter__Label" htmlFor="year">
+      <label className="filter__Label " htmlFor="year">
         Year
       </label>
       <select
-        className="filter__box"
+        className="filter__box filter__checkbox"
         name="year"
         onChange={handleChange}
         value={props.filterByYear}
