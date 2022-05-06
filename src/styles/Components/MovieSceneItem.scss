@@ -1,0 +1,8 @@
+@import '../Core/Reset.scss';
+@import "../Core/Variables.scss";
+
+.movieSceneItem{
+    &__image {
+        width: 60px;
+    }
+}

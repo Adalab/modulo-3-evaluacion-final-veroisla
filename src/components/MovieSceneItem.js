@@ -1,6 +1,8 @@
 //PINTAMOS CADA UNA DE LAS PELÍCULAS, contenido del <li>
-import '../styles/MovieSceneItem.scss';
 import { Link } from 'react-router-dom';
+import '../styles/Core/Reset.scss';
+import '../styles/Core/Variables.scss';
+import '../styles/Components/MovieSceneItem.scss';
 
 function MovieSceneItem(props) {
   return (

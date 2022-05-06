@@ -1,0 +1,11 @@
+@import '../Core/Reset.scss';
+@import "../Core/Variables.scss";
+
+.header__Title {
+    font-family: $font;
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+

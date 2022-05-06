@@ -1,3 +1,6 @@
+import '../styles/Core/Reset.scss';
+import '../styles/Core/Variables.scss';
+
 //CONTIENE AMBOS COMPONENTES DE FILTRAR
 import FilterByYear from './FilterByYear';
 import FilterByName from './FilterByName';

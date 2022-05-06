@@ -1,6 +1,8 @@
 //LISTADO DE PELÍCULAS, (aquí pintamos las pelis)
-import '../styles/MovieSceneList.scss';
 import MovieSceneItem from './MovieSceneItem';
+import '../styles/Core/Reset.scss';
+import '../styles/Core/Variables.scss';
+import '../styles/Components/MovieSceneList.scss';
 
 function MovieSceneList(props) {
   if (props.dataMovie.length === 0) {

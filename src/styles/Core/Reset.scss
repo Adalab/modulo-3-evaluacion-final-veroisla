@@ -1,0 +1,9 @@
+@import "../Core/Variables.scss";
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background-color: $color__background;
+    text-decoration: none;
+}

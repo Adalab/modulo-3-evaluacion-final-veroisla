@@ -1,0 +1,15 @@
+@import '../Core/Reset.scss';
+@import "../Core/Variables.scss";
+
+.filter {
+
+    &__Label {
+        font-size: 20px;
+        margin-right: 8px;
+    }
+
+    &__box {
+        margin-right: 20px;
+        background-color: $color__inputs;
+    }
+}

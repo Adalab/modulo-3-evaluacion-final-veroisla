@@ -1,4 +1,5 @@
-//MÁS INFO DE LA PELI
+import '../styles/Core/Reset.scss';
+import '../styles/Core/Variables.scss';
 
 function MovieSceneDetail(props) {
   return (

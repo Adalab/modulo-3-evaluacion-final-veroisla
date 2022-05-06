@@ -1,5 +1,10 @@
 import React from 'react';
-import '../styles/App.scss';
+import '../styles/Components/Header.scss';
+import '../styles/Core/Reset.scss';
+import '../styles/Core/Variables.scss';
+// import '../styles/App.scss';
+import '../styles/Components/Header.scss';
+
 import getApiData from '../services/moviesApi';
 import localStorage from '../services/localStorage';
 
@@ -62,14 +67,14 @@ function App() {
 
   //Array que contiene todos los años.
   const getYear = () => {
-    const onlyYear = dataMovie.map((year) => year.year); //onlyYear es mi array de todos los años.
+    const onlyYear = dataMovie.map((year) => year.year);
     const uniqueYear = onlyYear.filter((eachYear, index) => {
       return onlyYear.indexOf(eachYear) === index;
     });
     return uniqueYear;
   };
 
-  //MÁS INFO URL
+  //PARA OBTENER ID DE LA URL
   const { pathname } = useLocation();
   const dataPath = matchPath('/movieSceneDetail/:id', pathname);
   const movieId = dataPath !== null ? dataPath.params.id : null;
@@ -78,7 +83,7 @@ function App() {
   return (
     <div>
       <header>
-        <h1>Owen Wilson's "wow"</h1>
+        <h1 className="header__Title">Owen Wilson's "wow"</h1>
       </header>
 
       <Routes>
