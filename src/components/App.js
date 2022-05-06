@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/App.scss';
 import getApiData from '../services/moviesApi';
+import localStorage from '../services/localStorage';
 
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
@@ -11,17 +12,28 @@ import Filters from './Filters';
 import MovieSceneDetail from './MovieSceneDetail';
 
 function App() {
-  const [dataMovie, setDataMovie] = useState([]);
-  const [filterByName, setFilterByName] = useState('');
-  const [filterByYear, setFilterByYear] = useState('');
+  const [dataMovie, setDataMovie] = useState(localStorage.get('movies', []));
+  const [filterByName, setFilterByName] = useState(
+    localStorage.get('name', '')
+  );
+  const [filterByYear, setFilterByYear] = useState(
+    localStorage.get('year', '')
+  );
 
   useEffect(() => {
-    getApiData().then((dataFromApi) => {
-      setDataMovie(dataFromApi);
-    });
+    if (dataMovie.length === 0) {
+      getApiData().then((dataFromApi) => {
+        setDataMovie(dataFromApi);
+      });
+    }
   }, []);
 
-  //PREVENIR ENVÍO PRO DEFECTO DE FORM
+  useEffect(() => {
+    localStorage.set('movies', dataMovie); //--> Guarda la propiedad y su valor
+    localStorage.set('name', filterByName);
+    localStorage.set('year', filterByYear);
+  }, [dataMovie, filterByName, filterByYear]); // --> Guardamelo cuando cambie el estado de la variable.
+
   const PreventSubmitForm = (ev) => {
     ev.preventDefault();
   };
@@ -63,12 +75,6 @@ function App() {
   const movieId = dataPath !== null ? dataPath.params.id : null;
   const movieFound = dataMovie.find((item) => item.id === movieId);
 
-  //Botón volver a listado
-
-  const getBack = (ev) => {
-    console.log('hola');
-  };
-
   return (
     <div>
       <header>
@@ -86,6 +92,7 @@ function App() {
                 getYear={getYear()}
                 handleFilterByYear={handleFilterByYear}
                 filterByYear={filterByYear}
+                filterByName={filterByName}
               />
               <MovieSceneList dataMovie={movieFilter} />
             </>
@@ -93,7 +100,7 @@ function App() {
         />
         <Route
           path="/movieSceneDetail/:id"
-          element={<MovieSceneDetail oneMovie={movieFound} getBack={getBack} />}
+          element={<MovieSceneDetail oneMovie={movieFound} />}
         />
       </Routes>
     </div>

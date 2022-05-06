@@ -11,7 +11,7 @@ function FilterByName(props) {
       <input
         type="text"
         placeholder=""
-        value={props.filterMovie}
+        value={props.filterByName}
         onChange={handleChange}
       ></input>
     </>

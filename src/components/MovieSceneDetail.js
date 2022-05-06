@@ -1,10 +1,6 @@
 //MÁS INFO DE LA PELI
 
 function MovieSceneDetail(props) {
-  const handleClick = (ev) => {
-    props.getBack();
-  };
-
   return (
     <>
       <img
@@ -20,7 +16,7 @@ function MovieSceneDetail(props) {
         Escuchar Audio
       </a>
 
-      <button type="button" onClick={handleClick}>
+      <button type="button">
         <a href="/">Volver a listado</a>
       </button>
     </>

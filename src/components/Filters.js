@@ -9,7 +9,10 @@ function Filters(props) {
   return (
     <section>
       <form onSubmit={handleSubmitForm}>
-        <FilterByName handleFilterByName={props.handleFilterByName} />
+        <FilterByName
+          handleFilterByName={props.handleFilterByName}
+          filterByName={props.filterByName}
+        />
 
         <FilterByYear
           getYear={props.getYear}
