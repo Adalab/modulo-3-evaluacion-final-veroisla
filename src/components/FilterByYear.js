@@ -18,7 +18,7 @@ function FilterByYear(props) {
 
   return (
     <>
-      <label className="filter__Label " htmlFor="year">
+      <label className="filter__label " htmlFor="year">
         Year
       </label>
       <select

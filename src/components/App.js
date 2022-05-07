@@ -1,8 +1,7 @@
 import React from 'react';
-import '../styles/Components/Header.scss';
+
 import '../styles/Core/Reset.scss';
 import '../styles/Core/Variables.scss';
-// import '../styles/App.scss';
 import '../styles/Components/Header.scss';
 
 import getApiData from '../services/moviesApi';
@@ -85,29 +84,33 @@ function App() {
       <header>
         <h1 className="header__Title">Owen Wilson's "wow"</h1>
       </header>
+      <main>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <div className="filter__section">
+                  <Filters
+                    PreventSubmitForm={PreventSubmitForm}
+                    handleFilterByName={handleFilterByName}
+                    getYear={getYear()}
+                    handleFilterByYear={handleFilterByYear}
+                    filterByYear={filterByYear}
+                    filterByName={filterByName}
+                  />
+                </div>
 
-      <Routes>
-        <Route
-          path="/"
-          element={
-            <>
-              <Filters
-                PreventSubmitForm={PreventSubmitForm}
-                handleFilterByName={handleFilterByName}
-                getYear={getYear()}
-                handleFilterByYear={handleFilterByYear}
-                filterByYear={filterByYear}
-                filterByName={filterByName}
-              />
-              <MovieSceneList dataMovie={movieFilter} />
-            </>
-          }
-        />
-        <Route
-          path="/movieSceneDetail/:id"
-          element={<MovieSceneDetail oneMovie={movieFound} />}
-        />
-      </Routes>
+                <MovieSceneList dataMovie={movieFilter} />
+              </>
+            }
+          />
+          <Route
+            path="/movieSceneDetail/:id"
+            element={<MovieSceneDetail oneMovie={movieFound} />}
+          />
+        </Routes>
+      </main>
     </div>
   );
 }

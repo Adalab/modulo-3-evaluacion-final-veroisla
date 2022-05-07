@@ -10,7 +10,7 @@ function FilterByName(props) {
 
   return (
     <>
-      <label className="filter__Label filter__movie" htmlFor="movie">
+      <label className="filter__label filter__movie" htmlFor="movie">
         Movie
       </label>
       <input

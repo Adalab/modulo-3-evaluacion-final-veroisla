@@ -9,13 +9,17 @@ function MovieSceneItem(props) {
     <Link to={`/movieSceneDetail/${props.oneMovie.id}`}>
       <div className="movieSceneItem">
         <img
-          className="movieSceneItem__image"
+          className="movieSceneItem__img"
           alt={props.oneMovie.movie}
           title={props.oneMovie.movie}
           src={props.oneMovie.poster}
         />
-        <h4>{props.oneMovie.movie}</h4>
-        <p>{props.oneMovie.year}</p>
+        <div className="movieSceneItem__movieYear">
+          <h4 className="movieSceneItem__name">{props.oneMovie.movie}</h4>
+          <span className="movieSceneItem__span">-</span>
+          <p className="movieSceneItem__name">{props.oneMovie.year}</p>
+        </div>
+
         <p>{props.oneMovie.full_line}</p>
       </div>
     </Link>
