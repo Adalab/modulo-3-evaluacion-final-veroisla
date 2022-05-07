@@ -7,14 +7,14 @@
       display: flex;
       flex-direction: row;
       justify-content: center;
-      color: #0B1613;
+      border: 2px solid $color__btn;
     }
     
     
         &__img {
            width: 400px;
            padding: 30px 0px 30px 30px;
-           background-color: $color__inputs;
+          
         }
 
 
@@ -24,14 +24,13 @@
             display: flex;
             flex-direction: column;
             padding: 30px;
-            background-color: $color__inputs;
             font-size: 20px;
           
          }
 
         &__name {
            font-size: 30px;
-           margin-bottom: 10px;
+           margin-bottom: 20px;
 
          }
 
@@ -47,7 +46,7 @@
 
        &__audio {
         margin-bottom: 40px;
-
+        text-decoration: none;
        }
 
        &__button {
@@ -60,19 +59,15 @@
            cursor: pointer;
 
            &__href {
-               color: whitesmoke;
+               color: $color__letter;
+               font-size: 18px;
            }
 
            &:hover {
                background-color: $color__hoverBtn;
            }
        }
-
        
-     
-   
-     
-   
        &__span {
            margin-right: 5px;
        }

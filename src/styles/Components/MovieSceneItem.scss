@@ -6,7 +6,7 @@
  display: flex;
  flex-direction: column;
  align-items: center;
- color: #0B1613;
+ 
 
 
  &__img {
@@ -18,9 +18,7 @@
  &__movieYear {
     display: flex;
     margin-bottom: 10px;
-    &:hover{color: #123F33;} 
-    }
-
+ }
  &__name {
     margin-right: 10px;
     }

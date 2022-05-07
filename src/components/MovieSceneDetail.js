@@ -18,6 +18,7 @@ function MovieSceneDetail(props) {
           <p className="movieSceneDetail__director">
             Director: {props.oneMovie.director}
           </p>
+          <i class="fa-solid fa-volume"></i>
           <a
             className="movieSceneDetail__audio"
             href={props.oneMovie.audio}

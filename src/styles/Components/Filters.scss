@@ -17,7 +17,7 @@
 
     &__box {
         margin-right: 20px;
-        background-color: $color__inputs;
+        background-color: $color__btn;
         height: 25px;
         border: none;
         border-radius: 5px;
@@ -25,5 +25,9 @@
 
     &__movie {
         margin-left: 50px;
+    }
+
+    &__checkbox {
+       padding: 5px;
     }
 }
