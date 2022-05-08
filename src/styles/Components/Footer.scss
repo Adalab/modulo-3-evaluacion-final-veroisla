@@ -1,0 +1,21 @@
+@import '../Core/Reset.scss';
+@import "../Core/Variables.scss";
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+    margin-bottom: 40px;
+
+    &__coded {
+        margin-bottom: 10px;
+    }
+    &__icon {
+        margin-left: 10px;
+        color: $color__hoverBtn;
+        &:hover {
+            color: $color__letter;
+        }
+    }
+}

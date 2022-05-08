@@ -30,18 +30,28 @@
 
         &__name {
            font-size: 30px;
-           margin-bottom: 20px;
+           margin-bottom: 25px;
 
          }
 
         &__wow {
-            margin-bottom: 10px;
+            margin-bottom: 20px;
 
          }
 
         &__director {
             margin-bottom: 20px;
 
+       }
+
+
+       &__headphones {
+           color: $color__hoverBtn;
+           transition: transform 0.8 1s;
+           &:hover {
+             transform: scale(1.2);
+           }
+           
        }
 
        &__audio {
@@ -72,3 +82,5 @@
            margin-right: 5px;
        }
    }
+
+  

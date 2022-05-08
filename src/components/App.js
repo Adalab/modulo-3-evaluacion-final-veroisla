@@ -2,7 +2,6 @@ import React from 'react';
 
 import '../styles/Core/Reset.scss';
 import '../styles/Core/Variables.scss';
-import '../styles/Components/Header.scss';
 
 import getApiData from '../services/moviesApi';
 import localStorage from '../services/localStorage';
@@ -11,9 +10,11 @@ import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { matchPath, useLocation } from 'react-router';
 
+import Header from './Header';
 import MovieSceneList from './MovieSceneList';
 import Filters from './Filters';
 import MovieSceneDetail from './MovieSceneDetail';
+import Footer from './Footer';
 
 function App() {
   const [dataMovie, setDataMovie] = useState(localStorage.get('movies', []));
@@ -81,15 +82,13 @@ function App() {
 
   return (
     <div>
-      <header>
-        <h1 className="header__Title">Owen Wilson's "wow"</h1>
-      </header>
       <main>
         <Routes>
           <Route
             path="/"
             element={
               <>
+                <Header />
                 <div className="filter__section">
                   <Filters
                     PreventSubmitForm={PreventSubmitForm}
@@ -102,12 +101,19 @@ function App() {
                 </div>
 
                 <MovieSceneList dataMovie={movieFilter} />
+                <Footer />
               </>
             }
           />
           <Route
             path="/movieSceneDetail/:id"
-            element={<MovieSceneDetail oneMovie={movieFound} />}
+            element={
+              <>
+                <Header />
+                <MovieSceneDetail oneMovie={movieFound} />
+                <Footer />
+              </>
+            }
           />
         </Routes>
       </main>
