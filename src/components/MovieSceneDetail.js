@@ -17,7 +17,6 @@ function MovieSceneDetail(props) {
           <p className="movieSceneDetail__wow">
             <em>{props.oneMovie.full_line}</em>
           </p>{' '}
-          <i class="fa-regular fa-clapperboard-play movieSceneDetail__camara"></i>
           <p className="movieSceneDetail__director">
             Director: {props.oneMovie.director}
           </p>{' '}
@@ -33,7 +32,7 @@ function MovieSceneDetail(props) {
           </a>
           <button className="movieSceneDetail__button" type="button">
             <a className="movieSceneDetail__button__href" href="/">
-              Back to movies
+              Back to movies{' '}
             </a>
           </button>
         </div>
