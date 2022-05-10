@@ -15,6 +15,7 @@ import MovieSceneList from './MovieSceneList';
 import Filters from './Filters';
 import MovieSceneDetail from './MovieSceneDetail';
 import Footer from './Footer';
+import Director from './Director';
 
 function App() {
   const [dataMovie, setDataMovie] = useState(localStorage.get('movies', []));
@@ -23,6 +24,10 @@ function App() {
   );
   const [filterByYear, setFilterByYear] = useState(
     localStorage.get('year', '')
+  );
+
+  const [filterDirector, setFilterDirector] = useState(
+    localStorage.get('director', '')
   );
 
   useEffect(() => {
@@ -37,7 +42,8 @@ function App() {
     localStorage.set('movies', dataMovie); //--> Guarda la propiedad y su valor
     localStorage.set('name', filterByName);
     localStorage.set('year', filterByYear);
-  }, [dataMovie, filterByName, filterByYear]); // --> Guardamelo cuando cambie el estado de la variable.
+    localStorage.set('director', filterDirector);
+  }, [dataMovie, filterByName, filterByYear, filterDirector]); // --> Guardamelo cuando cambie el estado de la variable.
 
   const PreventSubmitForm = (ev) => {
     ev.preventDefault();
@@ -51,7 +57,15 @@ function App() {
     setFilterByYear(value);
   };
 
+  const handleFilterByDirector = (value) => {
+    setFilterDirector(value);
+  };
+
   const movieFilter = dataMovie
+
+    .filter((director) => {
+      return director.director.includes(filterDirector);
+    })
 
     .filter((name) => {
       return name.movie.toLowerCase().includes(filterByName.toLowerCase());
@@ -97,6 +111,10 @@ function App() {
                     handleFilterByYear={handleFilterByYear}
                     filterByYear={filterByYear}
                     filterByName={filterByName}
+                  />
+                  <Director
+                    handleFilterByDirector={handleFilterByDirector}
+                    filterDirector={filterDirector}
                   />
                 </div>
 

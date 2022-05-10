@@ -4,19 +4,19 @@
 .header { 
    display: flex;
    justify-content: center;
-   margin: 40px 0px 40px 0px;
-   margin-bottom: 80px;
+   margin: 40px 0px 60px 0px;
+  
   
 
  &__Title {
     font-family: $font;
     display: flex;
     justify-content: center;
-    margin: 40px 0px 60px 0px;
+    margin: 60px 0px 60px 0px;
     color: $color__letter;
  }
   &__Image {
-     width: 100px;
+     width: 140px;
      margin-left: 30px;
  }
 }

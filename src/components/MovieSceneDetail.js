@@ -15,7 +15,7 @@ function MovieSceneDetail(props) {
         <div className="movieSceneDetail__detail">
           <h4 className="movieSceneDetail__name">{props.oneMovie.movie}</h4>
           <p className="movieSceneDetail__wow">
-            {props.oneMovie.full_line}
+            <em>{props.oneMovie.full_line}</em>
           </p>{' '}
           <i class="fa-regular fa-clapperboard-play movieSceneDetail__camara"></i>
           <p className="movieSceneDetail__director">
