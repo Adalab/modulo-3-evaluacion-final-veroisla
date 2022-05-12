@@ -31,8 +31,10 @@ function MovieSceneDetail(props) {
             <i className="detail__icon fas fa-headphones movieSceneDetail__headphones"></i>{' '}
             Listen the WOW
           </a>
-          <button className="movieSceneDetail__button" type="button">
-            <Link to="/">Back to movies</Link>
+          <button className="movieSceneDetail__button button" type="button">
+            <Link to="/" className="movieSceneDetail__button__href">
+              Back to movies
+            </Link>
           </button>
         </div>
       </section>

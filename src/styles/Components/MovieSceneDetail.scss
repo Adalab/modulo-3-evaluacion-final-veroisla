@@ -58,30 +58,58 @@
         margin-bottom: 40px;
         text-decoration: none;
        }
+    }
+  
 
-       &__button {
-           outline: none;
-           box-shadow: none;
-           padding: 8px;
-           background-color: $color__btn;
-           border: none;
-           border-radius: 4px;
-           cursor: pointer;
-
-           &__href {
-               color: $color__letter;
-               font-size: 18px;
-           }
-
-           &:hover {
-               background-color: $color__hoverBtn;
-           }
-       }
-       
-       &__span {
-           margin-right: 5px;
-       }
+.button {
+    display: inline-block;
+    width: 8em;
+    height: 2.6em;
+    line-height: 2.5em;
+    margin: 20px;
+    position: relative;
+    overflow: hidden;
+    border: 3px solid $color__btn;
+    transition: color .5s;
+    z-index: 1;
+    font-size: 17px;
+    border-radius: 6px;
+    font-weight: 500;
+    background-color: $color__background;
+    color: white;
+   
+   }
+   
+   .button:before {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    background: $color__btn;
+    height: 150px;
+    width: 200px;
+    border-radius: 50%;
+   }
+   
+   .button:hover {
+    color: #fff;
+   }
+   
+  .button:before {
+    top: 100%;
+    left: 100%;
+    transition: all .7s;
+   }
+   
+   .button:hover:before {
+    top: -30px;
+    left: -30px;
+   }
+   
+   .button:active:before {
+    background: $color__hoverBtn;
+    transition: background 0s;
    }
 
-  
-  
+//    .back {
+//        color: white;
+//    }
