@@ -1,6 +1,7 @@
 import '../styles/Core/Reset.scss';
 import '../styles/Core/Variables.scss';
 import '../styles/Components/MovieSceneDetail.scss';
+import { Link } from 'react-router-dom';
 
 function MovieSceneDetail(props) {
   return (
@@ -31,9 +32,7 @@ function MovieSceneDetail(props) {
             Listen the WOW
           </a>
           <button className="movieSceneDetail__button" type="button">
-            <a className="movieSceneDetail__button__href" href="/">
-              Back to movies{' '}
-            </a>
+            <Link to="/">Back to movies</Link>
           </button>
         </div>
       </section>
