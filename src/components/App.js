@@ -96,13 +96,13 @@ function App() {
 
   return (
     <div>
+      <Header />
       <main>
         <Routes>
           <Route
             path="/"
             element={
               <>
-                <Header />
                 <div className="filter__section">
                   <Filters
                     PreventSubmitForm={PreventSubmitForm}
@@ -119,7 +119,6 @@ function App() {
                 </div>
 
                 <MovieSceneList dataMovie={movieFilter} />
-                <Footer />
               </>
             }
           />
@@ -127,14 +126,13 @@ function App() {
             path="/movieSceneDetail/:id"
             element={
               <>
-                <Header />
                 <MovieSceneDetail oneMovie={movieFound} />
-                <Footer />
               </>
             }
           />
         </Routes>
       </main>
+      <Footer />
     </div>
   );
 }
