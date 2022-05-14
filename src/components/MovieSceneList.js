@@ -8,8 +8,7 @@ function MovieSceneList(props) {
   if (props.dataMovie.length === 0) {
     return (
       <p className="movieSceneList__alert">
-        Uuups, parece ser que no hay ninguna película que coincida con tu
-        búsqueda!
+        Uuups, we can´t find <em> {props.filterByName} </em>, try again!
       </p>
     );
   } else {

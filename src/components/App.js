@@ -118,7 +118,10 @@ function App() {
                   />
                 </div>
 
-                <MovieSceneList dataMovie={movieFilter} />
+                <MovieSceneList
+                  dataMovie={movieFilter}
+                  filterByName={filterByName}
+                />
               </>
             }
           />
