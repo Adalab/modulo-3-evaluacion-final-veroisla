@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "./static/css/main.9fd26bf2.css",
-    "main.js": "./static/js/main.e01f5481.js",
+    "main.css": "./static/css/main.8ea0ebd8.css",
+    "main.js": "./static/js/main.33d18c11.js",
     "static/media/owen.png": "./static/media/owen.35bde53fec5584c801cc.png",
     "index.html": "./index.html",
-    "main.9fd26bf2.css.map": "./static/css/main.9fd26bf2.css.map",
-    "main.e01f5481.js.map": "./static/js/main.e01f5481.js.map"
+    "main.8ea0ebd8.css.map": "./static/css/main.8ea0ebd8.css.map",
+    "main.33d18c11.js.map": "./static/js/main.33d18c11.js.map"
   },
   "entrypoints": [
-    "static/css/main.9fd26bf2.css",
-    "static/js/main.e01f5481.js"
+    "static/css/main.8ea0ebd8.css",
+    "static/js/main.33d18c11.js"
   ]
 }
