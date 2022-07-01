@@ -20,7 +20,7 @@
 
   &__poster {
   display: inline-block;
-  width: 300px;
+  width: 15%;
   height: auto;
   margin: 15px;
   padding: 15px;
@@ -28,7 +28,14 @@
   text-decoration: none;
   border-radius: 10px;
   }
-  
+
+  &__up {
+    display: flex;
+    background-color: $color__btn;
+    font-size: 25px;
+    
+    
+  }
   }
 
 

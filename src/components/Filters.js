@@ -12,7 +12,7 @@ function Filters(props) {
     props.PreventSubmitForm();
   };
   return (
-    <section>
+    <section id="filters">
       <form onSubmit={handleSubmitForm} className="filter__section">
         <FilterByName
           handleFilterByName={props.handleFilterByName}
