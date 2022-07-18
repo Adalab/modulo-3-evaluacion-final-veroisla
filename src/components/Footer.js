@@ -20,7 +20,7 @@ function Footer(params) {
             <i className="footer__icon fab fa-github"></i>
           </a>{' '}
           <a
-            href="https://www.linkedin.com/in/veronica-isla-garc%C3%ADa-de-leaniz-585b52171/"
+            href="https://www.linkedin.com/in/veronica-isla-garcia-de-leaniz/"
             target="_blank"
             rel="noopener noreferrer"
           >
